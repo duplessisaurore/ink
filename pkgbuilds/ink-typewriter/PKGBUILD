@@ -1,0 +1,37 @@
+# Maintainer: Aurore du Plessis <aurore@sudlicht.com>
+
+pkgname=ink-typewriter
+_pkgname=typewriter
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="TOML file-based configuration file management program for centralising configuration"
+arch=('x86_64')
+url="https://github.com/duplessisaurore/typewriter"
+license=('AGPLv3')
+depends=()
+makedepends=('rust' 'cargo' 'git')
+source=("$_pkgname::git+https://github.com/duplessisaurore/typewriter.git")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "$srcdir/$_pkgname"
+    grep '^version' Cargo.toml | head -n1 | cut -d'"' -f2 || echo "0.1.0"
+}
+
+build() {
+    cd "$srcdir/$_pkgname"
+    cargo build --release --locked
+}
+
+check() {
+    cd "$srcdir/$_pkgname"
+    cargo test --release --locked || true
+}
+
+package() {
+    cd "$srcdir/$_pkgname"
+    
+    install -Dm755 "target/release/$_pkgname" "$pkgdir/usr/bin/typewriter"
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+    install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+}

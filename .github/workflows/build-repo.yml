@@ -1,0 +1,42 @@
+name: Build Arch Repository
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Arch Build Environment
+      run: |
+        pacman -Syu --noconfirm base-devel git
+        useradd -m builder
+        echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+        chown -R builder:builder .
+    
+    - name: Build Packages
+      run: |
+        su builder -c "cd pkgbuilds/ink-blueprint && makepkg -s --noconfirm"
+        su builder -c "cd pkgbuilds/ink-typewriter && makepkg -s --noconfirm"
+    
+    - name: Create Repository
+      run: |
+        mkdir -p repo
+        cp pkgbuilds/ink-blueprint/*.pkg.tar.zst repo/
+        cp pkgbuilds/ink-typewriter/*.pkg.tar.zst repo/
+        cd repo
+        repo-add ink.db.tar.gz *.pkg.tar.zst
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./repo
+        cname: ink.sudlicht.com
