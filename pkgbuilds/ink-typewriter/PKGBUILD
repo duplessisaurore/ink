@@ -20,12 +20,12 @@ pkgver() {
 
 build() {
     cd "$srcdir/$_pkgname"
-    cargo build --release --locked
+    cargo build --release
 }
 
 check() {
     cd "$srcdir/$_pkgname"
-    cargo test --release --locked || true
+    cargo test --release || true
 }
 
 package() {
