@@ -27,7 +27,7 @@ Note that the packages and package list are unsigned so ``SigLevel = Optional`` 
 ```
 [ink]
 SigLevel = Optional
-Server = https://duplessisaurore.github.io/ink/
+Server = https://ink.sudlicht.com
 ```
 
 <a name="packages"></a>
