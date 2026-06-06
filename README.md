@@ -8,7 +8,7 @@
   <strong>My Arch Linux user repository</strong>
 </div>
 <div align="center">
-  An Arch Linux user repository containing my personal software in the ink suite such as <code>typewriter</code> or <code>blueprint</code>.
+  An Arch Linux user repository containing my personal software.
 </div>
 
 
@@ -46,6 +46,12 @@ https://github.com/duplessisaurore/typewriter
 A <code>TOML</code> file-based declarative package manager wrapper.
 
 https://github.com/duplessisaurore/blueprint
+
+### ``lepton3``
+
+A bytecode virtual machine for the `Fermion3` language.
+
+https://github.com/duplessisaurore/lepton3
 
 <a name="license"></a>
 ## 🧾 License
