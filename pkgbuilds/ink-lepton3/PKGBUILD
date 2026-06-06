@@ -1,6 +1,6 @@
 # Maintainer: Aurore du Plessis <aurore@sudlicht.com>
 
-pkgname=lepton3
+pkgname=ink-lepton3
 _pkgname=lepton3
 pkgver=1.0.0
 pkgrel=1
