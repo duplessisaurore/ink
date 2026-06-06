@@ -53,6 +53,12 @@ A bytecode virtual machine for the `Fermion3` language.
 
 https://github.com/duplessisaurore/lepton3
 
+### ``quark3``
+
+A textual assembly language that compiles to `Lepton3` bytecode. 
+
+https://github.com/duplessisaurore/quark3
+
 <a name="license"></a>
 ## 🧾 License
 
