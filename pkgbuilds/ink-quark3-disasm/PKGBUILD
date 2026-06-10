@@ -30,7 +30,7 @@ check() {
 
 package() {
   cd "$srcdir/$_pkgname"
-  install -Dm755 "target/release/quark_std_disasm" "$pkgdir/usr/bin/quark3"
+  install -Dm755 "target/release/quark_std_disasm" "$pkgdir/usr/bin/quark3-disasm"
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
 }
