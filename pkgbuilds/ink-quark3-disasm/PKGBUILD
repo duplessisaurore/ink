@@ -1,10 +1,10 @@
 # Maintainer: Aurore du Plessis <aurore@sudlicht.com>
 
-pkgname=ink-quark3
-_pkgname=quark3
+pkgname=ink-quark3-disasm
+_pkgname=quark3-disasm
 pkgver=1.0.0
 pkgrel=1
-pkgdesc="An assembler for the Quark3 textual assembly language that compiles to Lepton3 bytecode."
+pkgdesc="A disassembler for the Quark3 textual assembly language that compiles to Lepton3 bytecode."
 arch=('x86_64')
 url="https://github.com/duplessisaurore/quark3"
 license=('AGPLv3')
@@ -20,17 +20,17 @@ pkgver() {
 
 build() {
   cd "$srcdir/$_pkgname"
-  cargo build -p quark_std --release
+  cargo build -p quark_std_disasm --release
 }
 
 check() {
   cd "$srcdir/$_pkgname"
-  cargo test -p quark_std --release || true
+  cargo test -p quark_std_disasm --release || true
 }
 
 package() {
   cd "$srcdir/$_pkgname"
-  install -Dm755 "target/release/quark_std" "$pkgdir/usr/bin/quark3"
+  install -Dm755 "target/release/quark_std_disasm" "$pkgdir/usr/bin/quark3"
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
 }

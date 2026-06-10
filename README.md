@@ -55,9 +55,16 @@ https://github.com/duplessisaurore/lepton3
 
 ### ``quark3``
 
-A textual assembly language that compiles to `Lepton3` bytecode. 
+An assembler for the `Quark3` textual assembly language that compiles to `Lepton3` bytecode. 
 
 https://github.com/duplessisaurore/quark3
+
+### ``quark3-disasm``
+
+A disassembler for the `Quark3` textual assembly language that compiles to `Lepton3` bytecode.
+
+https://github.com/duplessisaurore/quark3
+
 
 <a name="license"></a>
 ## 🧾 License

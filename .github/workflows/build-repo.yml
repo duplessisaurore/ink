@@ -24,6 +24,7 @@ jobs:
     - name: Build Packages
       run: |
         su builder -c "cd pkgbuilds/ink-quark3 && makepkg -s --noconfirm"
+        su builder -c "cd pkgbuilds/ink-quark3-disasm && makepkg -s --noconfirm"
         su builder -c "cd pkgbuilds/ink-lepton3 && makepkg -s --noconfirm"
         su builder -c "cd pkgbuilds/ink-blueprint && makepkg -s --noconfirm"
         su builder -c "cd pkgbuilds/ink-typewriter && makepkg -s --noconfirm"
@@ -32,6 +33,7 @@ jobs:
       run: |
         mkdir -p repo
         cp pkgbuilds/ink-quark3/*.pkg.tar.zst repo/
+        cp pkgbuilds/ink-quark3-disasm/*.pkg.tar.zst repo/
         cp pkgbuilds/ink-lepton3/*.pkg.tar.zst repo/
         cp pkgbuilds/ink-blueprint/*.pkg.tar.zst repo/
         cp pkgbuilds/ink-typewriter/*.pkg.tar.zst repo/
