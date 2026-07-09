@@ -65,6 +65,17 @@ A disassembler for the `Quark3` textual assembly language that compiles to `Lept
 
 https://github.com/duplessisaurore/quark3
 
+### ``boson3``
+
+A desugarer for the `Boson3` extensions to the `Quark3` textual assembly language, including named locals, globals, objects and macros.
+
+https://github.com/duplessisaurore/quark3
+
+### ``gluon3``
+
+A file combiner/linker for the `Boson3` sugared language
+
+https://github.com/duplessisaurore/quark3
 
 <a name="license"></a>
 ## 🧾 License
