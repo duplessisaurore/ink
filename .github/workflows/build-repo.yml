@@ -51,10 +51,10 @@ jobs:
             cd pkgbuilds/ink-quark3
             makepkg -s --noconfirm
 
-            cd pkgbuilds/ink-boson3
+            cd ../ink-boson3
             makepkg -s --noconfirm
 
-            cd pkgbuilds/ink-gluon3
+            cd ../ink-gluon3
             makepkg -s --noconfirm
 
             cd ../ink-quark3-disasm
