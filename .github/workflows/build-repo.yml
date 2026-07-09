@@ -32,17 +32,6 @@ jobs:
           chown -R builder:builder /home/builder
           chown -R builder:builder .
 
-      - name: Cache Cargo Registry
-        uses: actions/cache@v4
-        with:
-          path: |
-            /home/builder/.cargo/registry
-            /home/builder/.cargo/git
-            /home/builder/.cargo/bin
-          key: cargo-${{ runner.os }}-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: |
-            cargo-${{ runner.os }}-
-
       - name: Build Packages
         run: |
           su builder -c "
